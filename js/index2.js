@@ -18,14 +18,43 @@ new Vue({
     },
     methods:{
         reverseMessage:function () {
-            this.projname=this.projname.split('').reverse().join('')
+            this.projname=this.projname.split('').reverse().join('');
         },
         show:function () {
-            alert("点击显示！")
+            alert("点击显示！");
         },
         hide:function () {
             this.isShow=false;
+        },
+        isEvent:function (ev,a) {
+            alert(ev.clientX);
+            alert(a);
+        },
+        show2:function () {
+            alert(2);
+        },
+        show3:function (ev) {
+            alert(4);
+            ev.cancelBubble=true;
+        },
+        show4:function () {
+            alert(4);
+        },
+        show5:function (ev) {
+            alert("右击显示");
+            ev.preventDefault();
+        },
+        showKey:function (ev) {
+            if(ev.keyCode==13){
+                alert("回车已按！");
+            }else {
+                alert(ev.keyCode);
+            }
+        },
+        showEnter:function () {
+            alert("回车已按！");
         }
+
     },
     //局部注册组件
     components:{
