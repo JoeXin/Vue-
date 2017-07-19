@@ -10,6 +10,7 @@ new Vue({
     data:{
         edit:true,
         module:module,
+        isShow:false,
         items:[
             { name:"西游记",id:1},
             { name:"水浒传",id:2},
@@ -25,7 +26,10 @@ new Vue({
         },
         del:function (item) {
             var index=this.items.indexOf(item);
-            this.items.splice(index,1)
+            this.items.splice(index,1);
+            if(this.items.length==0){
+                this.isShow=true;
+            }
         },
         update:function () {
            this.edit=false;

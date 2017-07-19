@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Vue 练习</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <div id="app">
@@ -12,17 +13,34 @@
     </p>
     <p>{{projname}}</p>
     <input type="text" v-model="projname" placeholder="改变项目名字"><br>
-    <button class="btn btn-primary" v-on:click="reverseMessage">逆转信息</button>
+    <button class="btn btn-primary"
+            v-on:click="reverseMessage">逆转信息</button>
     <ol>
         <todo-item></todo-item>
     </ol>
-    <my-component></my-component>
-    <todo-item v-for="item in items"
-               v-bind:todo="item"
-               v-bind:key="item.id">
-
-    </todo-item>
-    <app-nav></app-nav>
+    <my-component></my-component><br>
+    <span v-text="msg"></span><br>
+    <span>{{msg}}</span>
+    <ul>
+        <li v-for="value in arr">
+            {{value}}
+        </li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="value in json">
+        {{value}}
+        </li>
+    </ul>
+    <ul>
+        <li v-for="(value,key,index) in json">
+            {{value}}- {{key}} - {{index}}
+        </li>
+    </ul>
+    事件的练习
+    <input type="button" value="点击" v-on:click="show()">
+    <input type="button" value="隐藏" v-on:click="hide()">
+    <div class="bg" v-show="isShow"></div>
 </div>
 <script src="js/vue2.4.1.js"></script>
 <script src="js/index2.js"></script>

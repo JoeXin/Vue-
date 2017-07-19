@@ -2,3 +2,9 @@
     padding: 10px;
     margin: 0 auto;
 }
+.bg{
+    width:200px;
+    height:200px;
+    background: red;
+    margin-top: 10px;
+}

@@ -17,7 +17,6 @@
             </thead>
             <tbody >
             <tr   v-for="item in items">
-                {{$index}}
                 <th class="text-center">
                     <p v-if="edit">{{item.id}}</p>
                     <input  v-if="!edit" type="text" v-model="item.id" placeholder="请输入Id">
@@ -31,6 +30,9 @@
                     <button class="btn btn-danger" v-on:click="del(item)">删除</button>
                 </th>
             </tr>
+            <tr  v-show="isShow">
+                <th  class="text-center" colspan="4">暂无数据...</th>
+            </tr>
             <tr>
                 <th class="text-center">
                     <input type="text" v-model="module.id" placeholder="请输入Id">
@@ -40,6 +42,7 @@
                     <button class="btn  btn-info" v-on:click="insert">新增</button>
                 </th>
             </tr>
+
             </tbody>
         </table>
     </div>
