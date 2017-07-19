@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue 练习</title>
+</head>
+<body>
+<div id="app">
+    <span>{{ message }}</span>
+    <p v-bind:title="mtitle">
+        鼠标悬停提示信息
+    </p>
+    <p>{{projname}}</p>
+    <input type="text" v-model="projname" placeholder="改变项目名字"><br>
+    <button class="btn btn-primary" v-on:click="reverseMessage">逆转信息</button>
+    <ol>
+        <todo-item></todo-item>
+    </ol>
+    <my-component></my-component>
+    <todo-item v-for="item in items"
+               v-bind:todo="item"
+               v-bind:key="item.id">
+
+    </todo-item>
+    <app-nav></app-nav>
+</div>
+<script src="js/vue2.4.1.js"></script>
+<script src="js/index2.js"></script>
+</body>
+</html>

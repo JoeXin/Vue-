@@ -2,16 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vue 学习</title>
+    <title>Vue 表格操作</title>
     <link rel="stylesheet" href="css/bootstrap3.3.0.min.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <div id="app">
-        <span>{{ message }}</span>
-        <p v-bind:title="mtitle">
-            鼠标悬停提示信息
-        </p>
         <table class="table table-bordered table-hover table-responsive ">
             <caption class="text-center">表格的基本操作</caption>
             <thead >
@@ -21,6 +17,7 @@
             </thead>
             <tbody >
             <tr   v-for="item in items">
+                {{$index}}
                 <th class="text-center">
                     <p v-if="edit">{{item.id}}</p>
                     <input  v-if="!edit" type="text" v-model="item.id" placeholder="请输入Id">
@@ -45,65 +42,8 @@
             </tr>
             </tbody>
         </table>
-        <p>{{projname}}</p>
-        <input type="text" v-model="projname" placeholder="改变项目名字"><br>
-        <button class="btn btn-primary" v-on:click="reverseMessage">逆转信息</button>
-        <ol>
-            <todo-item></todo-item>
-        </ol>
-        <my-component></my-component>
-        <todo-item v-for="item in items"
-                    v-bind:todo="item"
-                    v-bind:key="item.id"></todo-item>
-        <app-nav></app-nav>
-        <app-view>
-            <app-sidebar></app-sidebar>
-            <app-content></app-content>
-        </app-view>
     </div>
 </body>
 <script src="js/vue2.4.1.js"></script>
 <script src="js/index.js"></script>
-<script type="text/x-template" id="modal-template-check">
-    <transition name="modal">
-        <div class="modal-mask">
-            <div class="modal-wrapper">
-                <div class="modal-container">
-                    <div class="modal-header">
-                        <slot name="header">
-                            信息查看
-                        </slot>
-                    </div>
-                    <div class="modal-body">
-                        <slot name="body">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">姓名</label>
-                                <div class="col-sm-8">
-                                    <input type="text" name="name"  class="form-control" v-model="myTagCheckL.name" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">年纪</label>
-                                <div class="col-sm-8">
-                                    <input type="text" name="age"  class="form-control" v-model="myTagCheckL.age" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">性别</label>
-                                <div class="col-sm-8">
-                                    <input type="text" name="sex"  class="form-control" v-model="myTagCheckL.sex" disabled>
-                                </div>
-                            </div>
-                        </slot>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="modal-default-button btn btn-primary" @click="$emit('close')">
-                            关闭
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </transition>
-</script>
 </html>
