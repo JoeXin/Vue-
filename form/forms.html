@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/bootstrap3.3.0.min.css">
+	
+</script>
+</head>
+<body>
+	<div id="app">
+		<h1>表单练习</h1>
+		1、文本框
+		<br>
+		<input v-model="message" placeholder="edit me">
+		<p>Message is: {{ message }}</p>
+		<br>
+		<span>多行文本</span>
+		<textarea name="" v-model='message' placeholder="请输入内容"></textarea>
+	</div>
+	<script src="../js/vue2.4.1.js"></script>
+	<script>
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				message:'Vue 正在学习中'
+			}
+		})
+	</script>
+</body>
+</html>
