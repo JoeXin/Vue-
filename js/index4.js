@@ -3,7 +3,7 @@
  */
 // 注册
 Vue.component('my-component', {
-    template:'<div>这个是组件</div>'
+    template: '<div>这个是组件</div>'
 });
 Vue.component('simple-counter', {
     template: '<button v-on:click="counter += 1">{{ counter }}</button>',
@@ -25,30 +25,30 @@ Vue.component('girl', {
     props: ['myMessage'],
     template: '<span>{{ myMessage }}</span>'
 });
-Vue.component('son',{
+Vue.component('son', {
     props: ['myMessage'],
     template: '<span>{{ myMessage }}</span>'
 });
-var Child={
+var Child = {
     template: '<div>A custom component!</div>'
 };
 
 // 创建根实例
-var vm=new Vue({
+var vm = new Vue({
     // el:'#app',
-    aa:11, //自定义属性
-    show:function () {
+    aa: 11, //自定义属性
+    show: function () {
         alert(1);
     },
     data: {
-        items:[
-            'a','b','c'
+        items: [
+            'a', 'b', 'c'
         ],
         isActive: true,
-        isShow:false,
-        hasError:true,
-        parentMsg:'',
-        list:'',
+        isShow: false,
+        hasError: true,
+        parentMsg: '',
+        list: '',
         classObject: {
             isShow: true,
             'text-danger': false
@@ -57,21 +57,21 @@ var vm=new Vue({
         error: null,
         activeClass: 'active',
         errorClass: 'text-danger',
-        url:'https://www.baidu.com/img/bd_logo1.png',
-        w:'200px',
-        c:{
-            color:'red'
+        url: 'https://www.baidu.com/img/bd_logo1.png',
+        w: '200px',
+        c: {
+            color: 'red'
         },
         b: {
             backgroundColor: 'blue'
         },
-        aaa:{
-            color:'green'
+        aaa: {
+            color: 'green'
         },
-        a:123,
-        msg:"信息",
-        rawhtml:'<span>原始的html</span>',
-        ab:"Welcome",
+        a: 123,
+        msg: "信息",
+        rawhtml: '<span>原始的html</span>',
+        ab: "Welcome",
 
     },
     computed: {
@@ -82,8 +82,8 @@ var vm=new Vue({
             }
         }
     },
-    methods:{
-        add:function () {
+    methods: {
+        add: function () {
             this.items.push('ab');
         }
     },

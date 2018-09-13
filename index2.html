@@ -1,74 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Vue 练习</title>
     <link rel="stylesheet" href="css/bootstrap3.3.0.min.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
-<body>
-<div id="app">
-    <span>{{ message }}</span>
-    <p v-bind:title="mtitle">
-        鼠标悬停提示信息
-    </p>
-    <p>{{projname}}</p>
-    <input type="text" v-model="projname" placeholder="改变项目名字"><br>
-    <button class="btn btn-primary"
-            v-on:click="reverseMessage">逆转信息</button>
-    <ol>
-        <todo-item></todo-item>
-    </ol>
-    <my-component></my-component><br>
-    <span v-text="msg"></span><br>
-    <span>{{msg}}</span>
-    <ul>
-        <li v-for="value in arr">
-            {{value}}
-        </li>
-    </ul>
-    <hr>
-    <ul>
-        <li v-for="value in json">
-        {{value}}
-        </li>
-    </ul>
-    <ul>
-        <li v-for="(value,key,index) in json">
-             {{value}}- {{key}} - {{index}}
-        </li>
-    </ul>
-    事件的练习
-    <input type="button" value="点击" v-on:click="show()">
-    简写
-    <input type="button" value="点击" @click="show()">
-    <input type="button" value="隐藏" v-on:click="hide()">
-    <div class="bg" v-show="isShow"></div>
 
-    <br>
-    事件对象
-    <input type="button" value="对象" @click="isEvent($event,12)">
-    <br>
-    事件冒泡
-    <div @click="show2()" class="dbg">
-        <input type="button" class="btn btn-primary" value="按钮" @click="show3($event)">
-        简写
-        <input type="button" class="btn btn-primary" value="按钮" @click.stop="show4()">
+<body>
+    <div id="app">
+        <span>{{ message }}</span>
+        <p v-bind:title="mtitle">
+            鼠标悬停提示信息
+        </p>
+        <p>{{projname}}</p>
+        <input type="text" v-model="projname" placeholder="改变项目名字"><br>
+        <button class="btn btn-primary" v-on:click="reverseMessage">逆转信息</button>
+        <ol>
+            <todo-item></todo-item>
+        </ol>
+        <my-component></my-component><br>
+        <span v-text="msg"></span><br>
+        <span>{{msg}}</span>
+        <ul>
+            <li v-for="value in arr">
+                {{value}}
+            </li>
+        </ul>
         <hr>
+        <ul>
+            <li v-for="value in json">
+                {{value}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(value,key,index) in json">
+                {{value}}- {{key}} - {{index}}
+            </li>
+        </ul>
+        事件的练习
+        <input type="button" value="点击" v-on:click="show()">
+        简写
+        <input type="button" value="点击" @click="show()">
+        <input type="button" value="隐藏" v-on:click="hide()">
+        <div class="bg" v-show="isShow"></div>
+
+        <br>
+        事件对象
+        <input type="button" value="对象" @click="isEvent($event,12)">
+        <br>
+        事件冒泡
+        <div @click="show2()" class="dbg">
+            <input type="button" class="btn btn-primary" value="按钮" @click="show3($event)">
+            简写
+            <input type="button" class="btn btn-primary" value="按钮" @click.stop="show4()">
+            <hr>
+        </div>
+        阻止默认行为
+        <input type="button" value="点右键" class="btn btn-default" @contextmenu.prevent="show()">
+        另一种
+        <input type="button" value="点右键" class="btn btn-default" @contextmenu="show5($event)">
+        <br>
+        键盘事件
+        <input type="text" placeholder="请输入" @keydown="showKey($event)">
+        <input type="text" placeholder="请输入" @keyup="showKey($event)">
+        <br>
+        回车键：<input type="text" placeholder="请按回车键" @keyup.enter="showEnter()">
+        <input type="text" placeholder="请按回车键" @keyup.13="showEnter()">
     </div>
-    阻止默认行为
-    <input type="button"  value="点右键" class="btn btn-default" @contextmenu.prevent="show()" >
-    另一种
-    <input type="button"  value="点右键" class="btn btn-default" @contextmenu="show5($event)" >
-    <br>
-    键盘事件
-    <input type="text"  placeholder="请输入" @keydown="showKey($event)">
-    <input type="text"  placeholder="请输入" @keyup="showKey($event)">
-    <br>
-    回车键：<input type="text" placeholder="请按回车键" @keyup.enter="showEnter()">
-    <input type="text" placeholder="请按回车键"  @keyup.13="showEnter()">
-</div>
-<script src="js/vue2.4.1.js"></script>
-<script src="js/index2.js"></script>
+    <script src="js/vue2.4.1.js"></script>
+    <script src="js/index2.js"></script>
 </body>
+
 </html>

@@ -2,7 +2,7 @@
  * Created by Qx on 2017/7/19.
  */
 new Vue({
-    el:'#app',
+    el: '#app',
     data: {
         question: '',
         answer: 'I cannot give you an answer until you ask a question!'
@@ -30,6 +30,6 @@ new Vue({
                     .catch(function (error) {
                         vm.answer = 'Error! Could not reach the API. ' + error
                     })
-            },500)
+            }, 500)
     }
 });

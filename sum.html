@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="css/bootstrap3.3.0.min.css">
 </head>
+
 <body>
-<div id="app">
-	<div v-for='item in items'>
-		<div>
-			<span class="bg">
-				{{item.name}}
-			</span>
-			<input type="text" v-model="item.value" lazy number>
+	<div id="app">
+		<div v-for='item in items'>
+			<div>
+				<span class="bg">
+					{{item.name}}
+				</span>
+				<input type="text" v-model="item.value" lazy number>
+			</div>
 		</div>
+		总数：{{total}}
 	</div>
-	总数：{{total}}
-</div>
 	<script src="js/vue2.4.1.js"></script>
 	<script>
-	// Vue.config.debug=true
-		var vm=new Vue({
-			el:'#app',
-			data:{
-				items:[{
-					name:"安全手套",
-					value:100
-				},{
-					name:"手电筒",
-					value:200
-				},{
-					name:"手机",
-					value:500
+		// Vue.config.debug=true
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				items: [{
+					name: "安全手套",
+					value: 100
+				}, {
+					name: "手电筒",
+					value: 200
+				}, {
+					name: "手机",
+					value: 500
 				}]
 			},
-			computed:{
-				total:function(){
-					ob=this;
-					var amount=0;
+			computed: {
+				total: function () {
+					ob = this;
+					var amount = 0;
 					for (var i = 0; i < ob.items.length; i++) {
-						amount=amount+ob.items[i].value;
+						amount = amount + ob.items[i].value;
 					}
 					return amount;
 				}
@@ -47,11 +49,12 @@
 		})
 	</script>
 	<style>
-		.bg{
+		.bg {
 			background: yellow;
 			width: 80px;
 			display: inline-block;
 		}
 	</style>
 </body>
+
 </html>

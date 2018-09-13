@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Class 与 Style 绑定</title>
@@ -30,63 +31,65 @@
         margin-top: 20px;
     }
 </style>
+
 <body>
-<div id="app">
-    对象语法
-    <div v-bind:class="{ active: isActive }"></div>
-    <div v-bind:class="{ show: isShow, 'text-danger': hasError }"></div>
-    <div v-bind:class="classObject"></div>
-    <div v-bind:class="classObjects"></div>
-    数组语法
-    <hr>
-    <strong :style="[c,b]">文字</strong>
-    <strong :style="aaa">我在</strong>
-    <my-component></my-component>
-    <mt-child></mt-child>
-    <simple-counter></simple-counter>
-    <simple-counter></simple-counter>
-    <simple-counter></simple-counter>
-    <hr>
-    父子组件的关系 <br>
-    父组件通过 props 向下传递数据给子组件 <br>
-    <boy message="hello"></boy>
-    <br>
-    驼峰式 ----camelCased  需要 用 kebab-case (短横线隔开式) 命名 <br>
-    <girl my-message="hello"></girl>
-    <br>
-    动态Prop
-    <div>
-        <input v-model="parentMsg">
+    <div id="app">
+        对象语法
+        <div v-bind:class="{ active: isActive }"></div>
+        <div v-bind:class="{ show: isShow, 'text-danger': hasError }"></div>
+        <div v-bind:class="classObject"></div>
+        <div v-bind:class="classObjects"></div>
+        数组语法
+        <hr>
+        <strong :style="[c,b]">文字</strong>
+        <strong :style="aaa">我在</strong>
+        <my-component></my-component>
+        <mt-child></mt-child>
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+        <hr>
+        父子组件的关系 <br>
+        父组件通过 props 向下传递数据给子组件 <br>
+        <boy message="hello"></boy>
         <br>
-        <son v-bind:my-message="parentMsg"></son>
+        驼峰式 ----camelCased 需要 用 kebab-case (短横线隔开式) 命名 <br>
+        <girl my-message="hello"></girl>
         <br>
-        简写
-        <son :my-message="parentMsg"></son>
+        动态Prop
+        <div>
+            <input v-model="parentMsg">
+            <br>
+            <son v-bind:my-message="parentMsg"></son>
+            <br>
+            简写
+            <son :my-message="parentMsg"></son>
+        </div>
+        注意：v-bind 传递number 类型
+        而不能用 some-prop="1" 该用 v-bind:some-prop="1"
+        <br>
+        子组件通过 events 给父组件发送消息
+        <hr>
+        <img v-bind:src="url" alt="" :width="w">
+        <!--<img src="{{url}}" alt="">  404报错-->
+        <div>
+            <input type="text" class="form-group" v-model="msg">
+            <span>{{msg +"Hello"}}</span><br>
+            不改变<span>{{msg}}</span>
+        </div>
+        <p>{{rawhtml}}</p>
+        <p>{{a}}</p>
+        <br>
+        <button class="btn btn-primary" @click="add">+</button>
+        <ul>
+            <li v-for="item in items" track-by="$index">
+                {{item}}
+            </li>
+        </ul>
     </div>
-    注意：v-bind  传递number 类型
-    而不能用 some-prop="1" 该用 v-bind:some-prop="1"
-    <br>
-    子组件通过 events 给父组件发送消息
-    <hr>
-    <img v-bind:src="url" alt="" :width="w">
-    <!--<img src="{{url}}" alt="">  404报错-->
-    <div>
-        <input type="text" class="form-group" v-model="msg">
-        <span>{{msg +"Hello"}}</span><br>
-        不改变<span>{{msg}}</span>
-    </div>
-    <p>{{rawhtml}}</p>
-    <p>{{a}}</p>
-    <br>
-    <button class="btn btn-primary" @click="add">+</button>
-    <ul>
-        <li v-for="item in items" track-by="$index">
-            {{item}}
-        </li>
-    </ul>
-</div>
-<script src="js/vue2.4.1.js"></script>
-<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
-<script src="js/index4.js"></script>
+    <script src="js/vue2.4.1.js"></script>
+    <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="js/index4.js"></script>
 </body>
+
 </html>

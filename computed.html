@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>computed</title>
 </head>
+
 <body>
-<div id="app">
-	{{FullName}}
-</div>
-<script src="js/vue2.4.1.js"></script>
-<script>
-	var vm=new Vue({
-		el:'#app',
-		data:{
-			FirstName:'joe',
-			LastName:'xin'
-		},
-		computed:{
-			FullName:{
-				get:function(){
-					return this.FirstName+' '+this.LastName
-				},
-				set:function(newValue){
-					console.log("执行setter");
-					console.log("传入参数"+newValue);
-					var names=newValue.split(' ');
-					this.FirstName=names[0];
-					this.LastName=names[names.length-1];
+	<div id="app">
+		{{FullName}}
+	</div>
+	<script src="js/vue2.4.1.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				FirstName: 'joe',
+				LastName: 'xin'
+			},
+			computed: {
+				FullName: {
+					get: function () {
+						return this.FirstName + ' ' + this.LastName
+					},
+					set: function (newValue) {
+						console.log("执行setter");
+						console.log("传入参数" + newValue);
+						var names = newValue.split(' ');
+						this.FirstName = names[0];
+						this.LastName = names[names.length - 1];
+					}
 				}
 			}
-		}
-	})
-</script>
+		})
+	</script>
 </body>
+
 </html>
