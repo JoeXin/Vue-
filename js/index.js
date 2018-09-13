@@ -46,6 +46,9 @@ new Vue({
         },
         save:function (item) {
             item.edit=false;
+        },
+        cancel(item){
+            item.edit=false;
         }
     }
 });
