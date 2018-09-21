@@ -30,7 +30,7 @@
                     <th class="text-center">
                         <button class="btn btn-info" v-if="!item.edit" v-on:click="update(item)">修改</button>
                         <button class="btn btn-info" v-if="item.edit" v-on:click="save(item)">保存</button>
-                        <button class="btn btn-danger" v-if="item.edit" v-on:click="del(item)">删除</button>
+                        <button class="btn btn-danger" v-if="!item.edit" v-on:click="del(item)">删除</button>
                         <button class="btn btn-danger" v-if="item.edit" v-on:click="cancel(item)">取消</button>
                     </th>
                 </tr>
